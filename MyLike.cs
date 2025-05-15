@@ -43,7 +43,24 @@ namespace tinder_1
 
         private void DisplayFavoriteProfiles()
         {
-            
+            {
+                tableLayoutPanel.Controls.Clear();
+                tableLayoutPanel.RowCount = 0;
+
+                if (!_favoriteProfiles.Any())
+                {
+                    MessageBox.Show("У вас нет избранных анкет.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                foreach (var profile in _favoriteProfiles)
+                {
+                    var card = CreateProfileCard(profile);
+                    tableLayoutPanel.RowCount++;
+                    tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 120));
+                    tableLayoutPanel.Controls.Add(card, 0, tableLayoutPanel.RowCount - 1);
+                }
+            }
         }
 
         private Panel CreateProfileCard(UserProfile profile)
