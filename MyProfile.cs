@@ -225,7 +225,10 @@ namespace tinder_1
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
-            
+            var nextForm = new MainWindow(_userId);
+            nextForm.Show();
+            this.Hide();
+            logger.Info("Пользователь возвращается на главную форму");
         }
 
         private void btnShowMyLike_Click(object sender, EventArgs e)
