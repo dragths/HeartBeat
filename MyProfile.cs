@@ -233,7 +233,10 @@ namespace tinder_1
 
         private void btnShowMyLike_Click(object sender, EventArgs e)
         {
-            
+            var favoritesForm = new MyLike(_userId);
+            favoritesForm.Show();
+            this.Hide();
+            logger.Info("Пользователь переходит на форму просмотра избранных");
         }
     }
 }
