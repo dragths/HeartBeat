@@ -173,8 +173,20 @@ namespace tinder_1
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-           
-
+            if (_isEditMode)
+            {
+                SaveProfile();
+                SetReadOnlyMode(true);
+                btnEdit.Text = "Редактировать";
+                logger.Info("Пользователь нажимает на кнопку редактирования полей");
+            }
+            else
+            {
+                SetReadOnlyMode(false);
+                btnEdit.Text = "Сохранить";
+                logger.Info("Пользователь сохраняет изменения");
+            }
+            _isEditMode = !_isEditMode;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
