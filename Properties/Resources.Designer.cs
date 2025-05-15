@@ -23,12 +23,7 @@ namespace tinder_1.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-        internal static readonly string Message_SuccessfulLogin;
-        internal static readonly string Message_SuccessTitle;
-        internal static readonly string Button_EntryText;
-        internal static readonly string Button_RegistrationText;
-        internal static readonly string Message_LoginError;
-        internal static readonly string Message_ErrorTitle;
+      
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;

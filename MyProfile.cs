@@ -203,7 +203,32 @@ namespace tinder_1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                var result = MessageBox.Show("Вы уверены, что хотите удалить свой аккаунт?", "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    var user = _dbContext.Users.Find(_userProfile.UserId);
+
+                    _dbContext.UserProfiles.Remove(_userProfile);
+                    _dbContext.Users.Remove(user);
+                    _dbContext.SaveChanges();
+
+                    logger.Info("Пользователь удаляет профиль");
+                    MessageBox.Show("Аккаунт успешно удален!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    var nextForm = new Entry();
+                    nextForm.Show();
+                    this.Hide();
+                    logger.Info("Пользователь переходит на форму входа");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Произошла ошибка при удалении аккаунта: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void btnUpdatePhoto_Click(object sender, EventArgs e)
