@@ -136,7 +136,10 @@ namespace tinder_1
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            
+            var nextForm = new MyProfile(_userId);
+            nextForm.Show();
+            this.Close();
+            logger.Info("Пользователь переходит на форму просмотра своего профиля ");
         }
     }
 }
